@@ -1,0 +1,6 @@
+[submodule "REmatch"]
+	path = REmatch
+	url = git@github.com:REmatchChile/REmatch.git
+[submodule "multibuild"]
+	path = multibuild
+	url = git@github.com:matthew-brett/multibuild.git
