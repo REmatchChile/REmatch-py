@@ -8,6 +8,7 @@ function pre_build {
       brew install cmake
       brew install boost
   else
+      yum install -y pcre-devel
       # Install SWIG
       curl -O -L http://downloads.sourceforge.net/swig/swig-4.0.2.tar.gz
       tar xzf swig-4.0.2.tar.gz
@@ -27,7 +28,7 @@ function pre_build {
       cmake --version
 
       # Install Boost
-      yum install boost-devel
+      yum install -y boost-devel
 	fi
 }
 
