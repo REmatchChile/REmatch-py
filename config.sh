@@ -18,12 +18,7 @@ function pre_build {
       && make install)
 
       # Install CMake
-      curl -OL https://cmake.org/files/v3.18/cmake-3.18.4.tar.gz
-      tar zxvf cmake-3.*
-      (cd cmake-3.* \
-      && ./bootstrap --prefix=$BUILD_PREFIX \
-      && make -j8 \
-      && make install)
+      pip install cmake
 
       cmake --version
 
