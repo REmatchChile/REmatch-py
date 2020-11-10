@@ -4,7 +4,7 @@
 function pre_build {
   echo "\$ which python"
   which python
-  encho "\$ python --version"
+  echo "\$ python --version"
   python --version
   if [ -n "$IS_OSX" ]; then
     # brew update
@@ -12,6 +12,7 @@ function pre_build {
   else
     # SWIG depends on pcre and boost
     yum install -y pcre-devel boost-devel tree
+    tree /opt/python/cp35-cp35m
     # Install SWIG
     curl -O -L http://downloads.sourceforge.net/swig/swig-4.0.2.tar.gz
     tar xzf swig-4.0.2.tar.gz
