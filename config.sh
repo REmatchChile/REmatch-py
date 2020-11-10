@@ -35,7 +35,7 @@ function pre_build {
   cmake -DSWIG=true -DPYTHON_VERSION=$MB_PYTHON_VERSION -DPython_ROOT_DIR=$PYTHON_ROOT ..
   cmake --build . --config Release
 
-  tree ..
+  cd ../..
 
 }
 
