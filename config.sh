@@ -2,9 +2,12 @@
 # Test for OSX with [ -n "$IS_OSX" ]
 
 function pre_build {
-  ls
+  echo "\$ which python"
+  which python
+  encho "\$ python --version"
+  python --version
   if [ -n "$IS_OSX" ]; then
-    # brew updatte
+    # brew update
     brew install swig cmake boost tree
   else
     # SWIG depends on pcre and boost
