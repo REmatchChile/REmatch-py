@@ -10,7 +10,6 @@ function pre_build {
   if [ -n "$IS_OSX" ]; then
     # brew update
     brew install swig cmake boost
-    tree /Users/travis/build/REmatchChile/REmatch-py/venv
   else
     # SWIG depends on pcre and boost
     yum install -y pcre-devel boost-devel
