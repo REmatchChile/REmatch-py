@@ -5,12 +5,10 @@ function pre_build {
   ls
   if [ -n "$IS_OSX" ]; then
     # brew updatte
-    brew install swig
-    brew install cmake
-    brew install boost
+    brew install swig cmake boost tree
   else
     # SWIG depends on pcre and boost
-    yum install -y pcre-devel boost-devel
+    yum install -y pcre-devel boost-devel tree
     # Install SWIG
     curl -O -L http://downloads.sourceforge.net/swig/swig-4.0.2.tar.gz
     tar xzf swig-4.0.2.tar.gz
@@ -24,6 +22,14 @@ function pre_build {
 
     cmake --version
 	fi
+
+  mkdir -pv REmatch/build && cd REmatch/build
+
+  cmake -DSWIG=true ..
+  cmake --build . --config Release
+
+  tree ..
+
 }
 
 function build_wheel {
