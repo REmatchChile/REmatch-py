@@ -2,28 +2,27 @@
 # Test for OSX with [ -n "$IS_OSX" ]
 
 function pre_build {
+  ls
   if [ -n "$IS_OSX" ]; then
-      brew update
-      brew install swig
-      brew install cmake
-      brew install boost
+    # brew updatte
+    brew install swig
+    brew install cmake
+    brew install boost
   else
-      yum install -y pcre-devel
-      # Install SWIG
-      curl -O -L http://downloads.sourceforge.net/swig/swig-4.0.2.tar.gz
-      tar xzf swig-4.0.2.tar.gz
-      (cd swig-4.0.2 \
-      && ./configure --prefix=$BUILD_PREFIX \
-      && make \
-      && make install)
+    # SWIG depends on pcre and boost
+    yum install -y pcre-devel boost-devel
+    # Install SWIG
+    curl -O -L http://downloads.sourceforge.net/swig/swig-4.0.2.tar.gz
+    tar xzf swig-4.0.2.tar.gz
+    (cd swig-4.0.2 \
+    && ./configure --prefix=$BUILD_PREFIX \
+    && make \
+    && make install)
 
-      # Install CMake
-      pip install cmake
+    # Install CMake
+    pip install cmake
 
-      cmake --version
-
-      # Install Boost
-      yum install -y boost-devel
+    cmake --version
 	fi
 }
 
@@ -41,12 +40,4 @@ function build_wheel {
 }
 
 function run_tests {
-    # Runs tests on installed distribution from an empty directory
-    export NOSE_PROCESS_TIMEOUT=600
-    export NOSE_PROCESSES=0
-    echo "OS X? $IS_OSX"
-    rm -f /usr/local/lib/libglpk*
-    # Run Pillow tests from within source repo
-    cp ../test_swiglpk.py .
-    nosetests -v
 }
