@@ -36,10 +36,6 @@ services: docker
 # and test containers, via docker.
 dist: xenial
 
-branches:
-  only:
-    - master
-
 matrix:
   include:
     - os: linux
