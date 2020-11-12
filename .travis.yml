@@ -56,6 +56,6 @@ script:
 deploy:
   - provider: script
     skip_cleanup: true
-    script: scripts/deploy.sh
+    script: bash scripts/deploy.sh
     on:
       branch: main
