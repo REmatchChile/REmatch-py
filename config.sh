@@ -14,6 +14,7 @@ function pre_build {
     # SWIG depends on pcre and boost
     yum install -y pcre-devel boost-devel tree
     # Install SWIG
+    tree $PYTHON_ROOT
     curl -O -L http://downloads.sourceforge.net/swig/swig-4.0.2.tar.gz
     tar xzf swig-4.0.2.tar.gz
     (cd swig-4.0.2 \
@@ -29,7 +30,7 @@ function pre_build {
 
   mkdir -pv REmatch/build && cd REmatch/build
 
-  cmake -DSWIG=true -DPYTHON_VERSION=$MB_PYTHON_VERSION -DPython_ROOT_DIR=$PYTHON_ROOT ..
+  cmake -DSWIG=true -DPYTHON_VERSION=$MB_PYTHON_VERSION -DPython3_EXECUTABLE=$PYTHON_ROOT/bin/python -DPython3_LIBRARY=$PYTHON_ROOT/Libs -DPython3_INCLUDE_DIR=$PYTHON_ROOT/include ..
   cmake --build . --config Release
 
   cd ../..
