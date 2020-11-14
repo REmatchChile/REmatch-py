@@ -31,7 +31,8 @@ function pre_build {
 
   mkdir -pv REmatch/build && cd REmatch/build
 
-  cmake -DSWIG=true -DPYTHON_VERSION=$MB_PYTHON_VERSION -DPython3_EXECUTABLE=$PYTHON_ROOT/bin/python -DPython3_LIBRARY=$PYTHON_ROOT/lib -DPython3_INCLUDE_DIR=$PYTHON_ROOT/include ..
+  # -DPython3_EXECUTABLE=$PYTHON_ROOT/bin/python -DPython3_LIBRARY=$PYTHON_ROOT/lib -DPython3_INCLUDE_DIR=$PYTHON_ROOT/include ..
+  cmake -DSWIG=true -DPYTHON_VERSION=$MB_PYTHON_VERSION ..
   cmake --build . --config Release
 
   cd ../..
