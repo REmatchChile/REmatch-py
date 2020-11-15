@@ -3,11 +3,6 @@
 
 function pre_build {
   echo "\$ which python"
-}
-
-function build_wheel {
-
-  echo "\$ which python"
   export PYTHON_ROOT=$(dirname $(dirname $(which python)))
   echo $PYTHON_ROOT
   echo "\$ python --version"
@@ -33,21 +28,23 @@ function build_wheel {
 
     cmake --version
 	fi
-
-  ls
-
-  mkdir -pv REmatch/build && cd REmatch/build
-
-  # -DPython3_EXECUTABLE=$PYTHON_ROOT/bin/python -DPython3_LIBRARY=$PYTHON_ROOT/lib -DPython3_INCLUDE_DIR=$PYTHON_ROOT/include ..
-  cmake -DSWIG=true -DPYTHON_VERSION=$MB_PYTHON_VERSION ..
-  cmake --build . --config Release
-
-  cd ../..
-
-
-  # Set default building method to pip
-  build_bdist_wheel $@
 }
+
+# function build_wheel {
+#   ls
+
+#   mkdir -pv REmatch/build && cd REmatch/build
+
+#   # -DPython3_EXECUTABLE=$PYTHON_ROOT/bin/python -DPython3_LIBRARY=$PYTHON_ROOT/lib -DPython3_INCLUDE_DIR=$PYTHON_ROOT/include ..
+#   cmake -DSWIG=true -DPYTHON_VERSION=$MB_PYTHON_VERSION ..
+#   cmake --build . --config Release
+
+#   cd ../..
+
+
+#   # Set default building method to pip
+#   build_bdist_wheel $@
+# }
 
 function run_tests {
   # Runs tests on installed distribution from an empty directory
