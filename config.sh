@@ -18,7 +18,7 @@ function build_wheel {
     # tree $PYTHON_ROOT
   else
     # SWIG depends on pcre and boost
-    yum install -y pcre-devel boost-devel tree
+    yum install -y pcre-devel boost-devel python-devel
     # Install SWIG
     # tree $PYTHON_ROOT
     curl -O -L http://downloads.sourceforge.net/swig/swig-4.0.2.tar.gz
@@ -52,5 +52,5 @@ function build_wheel {
 function run_tests {
   # Runs tests on installed distribution from an empty directory
   python --version
-  # python -c 'import sys; import pyrematch; sys.exit(0)'
+  python -c 'import sys; import pyrematch; sys.exit(0)'
 }
