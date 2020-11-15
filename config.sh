@@ -9,7 +9,7 @@ function pre_build {
   python --version
   if [ -n "$IS_OSX" ]; then
     # brew update
-    brew install swig cmake boost tree
+    brew install swig boost tree
     # tree $PYTHON_ROOT
   else
     # SWIG depends on pcre and boost
@@ -24,9 +24,8 @@ function pre_build {
     && make install) > /dev/null
 
     # Install CMake
-    pip install cmake
-
-    cmake --version
+    # pip install cmake
+    # cmake --version
 	fi
 }
 
