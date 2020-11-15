@@ -13,7 +13,7 @@ function pre_build {
     # tree $PYTHON_ROOT
   else
     # SWIG depends on pcre and boost
-    yum install -y pcre-devel boost-devel python-devel
+    yum install -y pcre-devel python-devel
     yum update -y gcc
 
     gcc --version
@@ -26,6 +26,12 @@ function pre_build {
     && ./configure --prefix=$BUILD_PREFIX \
     && make \
     && make install) > /dev/null
+
+    # Install boost (will only work if REmatch only uses boost's headers)
+    curl -O -L https://dl.bintray.com/boostorg/release/1.74.0/source/boost_1_74_0.tar.gz
+    tar xzf boost_1_74_0.tar.gz
+    export BOOST_ROOT=$(abspath boost_1_74_0)
+
 
     # Install CMake
     # pip install cmake
