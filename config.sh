@@ -14,6 +14,10 @@ function pre_build {
   else
     # SWIG depends on pcre and boost
     yum install -y pcre-devel boost-devel python-devel
+    yum update -y gcc
+
+    gcc --version
+
     # Install SWIG
     # tree $PYTHON_ROOT
     curl -O -L http://downloads.sourceforge.net/swig/swig-4.0.2.tar.gz
