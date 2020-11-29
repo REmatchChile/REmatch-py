@@ -10,7 +10,7 @@ function pre_build {
   if [ -n "$IS_OSX" ]; then
     # brew update
     brew install swig boost tree
-    ls $PYTHON_ROOT
+    tree $PYTHON_ROOT
   else
     # SWIG depends on pcre and boost
     yum install -y pcre-devel python-devel
@@ -19,7 +19,7 @@ function pre_build {
     gcc --version
 
     # Install SWIG
-    ls $PYTHON_ROOT
+    tree $PYTHON_ROOT/include
     curl -O -L http://downloads.sourceforge.net/swig/swig-4.0.2.tar.gz
     tar xzf swig-4.0.2.tar.gz
     (cd swig-4.0.2 \
@@ -36,14 +36,19 @@ function pre_build {
     pip install cmake
     cmake --version
 
-    mkdir -pv REmatch/build && cd REmatch/build
+  fi
 
-    # -DPython3_EXECUTABLE=$PYTHON_ROOT/bin/python -DPython3_LIBRARY=$PYTHON_ROOT/lib -DPython3_INCLUDE_DIR=$PYTHON_ROOT/include ..
-    cmake -DSWIG=true -DPYTHON_VERSION=$MB_PYTHON_VERSION -DPython3_INCLUDE_DIRS=$PYTHON_ROOT/include ..
-    cmake --build . --config Release
+  mkdir -pv REmatch/build && cd REmatch/build
 
-    cd ../..
-	fi
+  # -DPython3_EXECUTABLE=$PYTHON_ROOT/bin/python -DPython3_LIBRARY=$PYTHON_ROOT/lib -DPython3_INCLUDE_DIR=$PYTHON_ROOT/include ..
+  if [ -n "$IS_OSX" ]; then
+    cmake -DSWIG=true -DPYTHON_VERSION=$MB_PYTHON_VERSION  ..
+  else
+    cmake -DSWIG=true -DPython3_INCLUDE_DIRS=$PYTHON_ROOT/include ..
+  fi
+  cmake --build . --config Release
+
+  cd ../..
 }
 
 function run_tests {
