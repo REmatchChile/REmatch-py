@@ -2,7 +2,6 @@ env:
   global:
   # Should change rematch.py inside this repo
   - REPO_DIR=REmatch
-  - BUILD_COMMIT=a8a14c0
   - BUILD_DEPENDS=""
   - MB_ML_VER=2014 # Use manylinux2014
   - secure: gDG+60MnqdXNd57tJwmQRcMxjy8bvV62GHdHlOCsPwMJZUEqn9pqV1RpuYHqeMui3HLeCl52UZBV3vjyLdShB7M1JUfTLJSfksKUSnxYlKWciIPQlbiBbPlWM0/gVsYtDvMz7x/F/1S2k6QdpFH7klUmIk7MOFwR+tyGuugRuuse73FNm51IUYBk9SQeC5PByhaF7KBfmADgVILnmHRmzu2NQj97MnJ3jg2e3day8B1FLc9Wc8upxAjmZgzCDcHCbq+iCuPrA0gL3NCA6Otsdn+n9fhRwrqSn5Nrowyy08NCIFkXUktjgm9LUV8zBmMewfm95tlF8WbHAandglu2BuVN14oCewFxqQvx7iXwJRsJ/2NE/trgNAyAHmVQWgmyrUgJgjgC6APTViWl1y9R7lfYZyTR5bT/6SqSY6G4cvqBsFnig/J819HlY21s+xoTcPkKLVzVhDyTF+JhJn6c4YFN3TFK0kiQUinXXGpAhol5xaIjW2T708VWZxQiwd0yMOWulW7dV564fBwuyylk6D9hzsaKFEDepLLq450WaETT7XQGXe7S8V0q2GiCgk4zfApwjih6fFt4WmwARcGNr0LjIf+NeXtn2Gq5Dus+g74WAYrtlCXaLbFW2lGvMR/hYWatYzIJdGN2Vm7BYS8/KT5K7iwgfLSFBHlhMHcoJPg=
