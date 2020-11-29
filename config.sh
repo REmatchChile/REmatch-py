@@ -21,6 +21,7 @@ function pre_build {
     # Install SWIG
     echo "\$ tree $PYTHON_ROOT/include"
     tree $PYTHON_ROOT/include
+    local PYTHON_INCLUDE_DIR=$(abspath $(find $PYTHON_ROOT/include -type d -name "python*"))
     curl -O -L http://downloads.sourceforge.net/swig/swig-4.0.2.tar.gz
     tar xzf swig-4.0.2.tar.gz
     (cd swig-4.0.2 \
@@ -45,7 +46,7 @@ function pre_build {
   if [ -n "$IS_OSX" ]; then
     cmake -DSWIG=true -DPYTHON_VERSION=$MB_PYTHON_VERSION  ..
   else
-    cmake -DSWIG=true -DPython3_INCLUDE_DIRS=$PYTHON_ROOT/include/python${MB_PYTHON_VERSION}m ..
+    cmake -DSWIG=true -DPython3_INCLUDE_DIRS=$PYTHON_INCLUDE_DIR ..
   fi
   cmake --build . --config Release
 
