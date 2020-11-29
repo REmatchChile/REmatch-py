@@ -39,7 +39,7 @@ function pre_build {
 	fi
 }
 
-# function build_wheel {
+function build_wheel {
   mkdir -pv REmatch/build && cd REmatch/build
 
   # -DPython3_EXECUTABLE=$PYTHON_ROOT/bin/python -DPython3_LIBRARY=$PYTHON_ROOT/lib -DPython3_INCLUDE_DIR=$PYTHON_ROOT/include ..
@@ -51,7 +51,7 @@ function pre_build {
 
   # Set default building method to pip
   build_bdist_wheel $@
-# }
+}
 
 function run_tests {
   # Runs tests on installed distribution from an empty directory
