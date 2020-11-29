@@ -40,23 +40,21 @@ function pre_build {
 }
 
 # function build_wheel {
-#   ls
+  mkdir -pv REmatch/build && cd REmatch/build
 
-#   mkdir -pv REmatch/build && cd REmatch/build
+  # -DPython3_EXECUTABLE=$PYTHON_ROOT/bin/python -DPython3_LIBRARY=$PYTHON_ROOT/lib -DPython3_INCLUDE_DIR=$PYTHON_ROOT/include ..
+  cmake -DSWIG=true -DPYTHON_VERSION=$MB_PYTHON_VERSION -DPython3_INCLUDE_DIR=$PYTHON_ROOT/include ..
+  cmake --build . --config Release
 
-#   # -DPython3_EXECUTABLE=$PYTHON_ROOT/bin/python -DPython3_LIBRARY=$PYTHON_ROOT/lib -DPython3_INCLUDE_DIR=$PYTHON_ROOT/include ..
-#   cmake -DSWIG=true -DPYTHON_VERSION=$MB_PYTHON_VERSION ..
-#   cmake --build . --config Release
-
-#   cd ../..
+  cd ../..
 
 
-#   # Set default building method to pip
-#   build_bdist_wheel $@
+  # Set default building method to pip
+  build_bdist_wheel $@
 # }
 
 function run_tests {
   # Runs tests on installed distribution from an empty directory
   python --version
-  python -c 'import sys; import pyrematch; sys.exit(0)'
+  python -m pyrematch.test_basic_operation
 }
