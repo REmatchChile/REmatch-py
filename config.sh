@@ -32,25 +32,18 @@ function pre_build {
     tar xzf boost_1_74_0.tar.gz
     export BOOST_ROOT=$(abspath boost_1_74_0)
 
-
     # Install CMake
-    # pip install cmake
-    # cmake --version
+    pip install cmake
+    cmake --version
+
+    mkdir -pv REmatch/build && cd REmatch/build
+
+    # -DPython3_EXECUTABLE=$PYTHON_ROOT/bin/python -DPython3_LIBRARY=$PYTHON_ROOT/lib -DPython3_INCLUDE_DIR=$PYTHON_ROOT/include ..
+    cmake -DSWIG=true -DPYTHON_VERSION=$MB_PYTHON_VERSION -DPython3_INCLUDE_DIRS=$PYTHON_ROOT/include ..
+    cmake --build . --config Release
+
+    cd ../..
 	fi
-}
-
-function build_wheel {
-  mkdir -pv REmatch/build && cd REmatch/build
-
-  # -DPython3_EXECUTABLE=$PYTHON_ROOT/bin/python -DPython3_LIBRARY=$PYTHON_ROOT/lib -DPython3_INCLUDE_DIR=$PYTHON_ROOT/include ..
-  cmake -DSWIG=true -DPYTHON_VERSION=$MB_PYTHON_VERSION -DPython3_INCLUDE_DIRS=$PYTHON_ROOT/include ..
-  cmake --build . --config Release
-
-  cd ../..
-
-
-  # Set default building method to pip
-  build_bdist_wheel $@
 }
 
 function run_tests {
