@@ -19,7 +19,8 @@ function pre_build {
     gcc --version
 
     # Install SWIG
-    # tree $PYTHON_ROOT/include
+    echo "\$ tree $PYTHON_ROOT/include"
+    tree $PYTHON_ROOT/include
     curl -O -L http://downloads.sourceforge.net/swig/swig-4.0.2.tar.gz
     tar xzf swig-4.0.2.tar.gz
     (cd swig-4.0.2 \
