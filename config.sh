@@ -13,7 +13,7 @@ function pre_build {
     tree $PYTHON_ROOT
   else
     # SWIG depends on pcre and boost
-    yum install -y pcre-devel python-devel
+    yum install -y pcre-devel python-devel tree
     yum update -y gcc
 
     gcc --version
