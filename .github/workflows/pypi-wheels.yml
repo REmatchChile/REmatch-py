@@ -26,8 +26,8 @@ jobs:
 
       - name: Build wheels
         env:
-          CIBW_BEFORE_ALL_MACOS: "bash scripts/pre_install_macos.sh"
-          CIBW_BEFORE_ALL_LINUX: "bash scripts/pre_install_linux.sh"
+          CIBW_BEFORE_BUILD_MACOS: "bash scripts/pre_install_macos.sh"
+          CIBW_BEFORE_BUILD_LINUX: "bash scripts/pre_install_linux.sh"
           CIBW_BUILD: >
             cp36-macosx_x86_64 cp37-macosx_x86_64 cp38-macosx_x86_64
              cp39-macosx_x86_64
