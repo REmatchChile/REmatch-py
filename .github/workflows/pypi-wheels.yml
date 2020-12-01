@@ -27,8 +27,8 @@ jobs:
 
       - name: Build wheels
         env:
-          CIBW_BEFORE_BUILD_MACOS: "scripts/pre_install_macos.sh"
-          CIBW_BEFORE_BUILD_LINUX: "scripts/pre_install_linux.sh"
+          CIBW_BEFORE_BUILD_MACOS: "ls; scripts/pre_install_macos.sh"
+          CIBW_BEFORE_BUILD_LINUX: "ls; scripts/pre_install_linux.sh"
 
         run: |
           python -m cibuildwheel --output-dir wheelhouse REmatch
