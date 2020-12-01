@@ -9,7 +9,6 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-18.04, macos-latest]
-        python-version: [3.6, 3.7, 3.8, 3.9]
 
     steps:
       - uses: actions/checkout@v2
@@ -19,7 +18,7 @@ jobs:
       - uses: actions/setup-python@v2
         name: Install Python
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: 3.8
 
       - name: Install cibuildwheel
         run: |
@@ -27,8 +26,8 @@ jobs:
 
       - name: Build wheels
         env:
-          CIBW_BEFORE_ALL_MACOS: "ls"
-          CIBW_BEFORE_ALL_LINUX: "../scripts/pre_install_linux.sh"
+          CIBW_BEFORE_ALL_MACOS: "bash scripts/pre_install_macos.sh"
+          CIBW_BEFORE_ALL_LINUX: "bash scripts/pre_install_linux.sh"
           CIBW_BUILD: >
             cp36-macosx_x86_64 cp37-macosx_x86_64 cp38-macosx_x86_64
              cp39-macosx_x86_64
