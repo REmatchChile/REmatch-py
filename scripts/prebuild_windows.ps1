@@ -12,7 +12,7 @@ New-Item -Path "REmatch/build" -ItemType Directory
 
 cd REmatch/build
 
-cmake -DSWIG=true -DPYTHON_VERSION="$PYTHON_VERSION" -DBoost_INCLUDE_DIR="$BOOST_ROOT/boost" ..
+cmake -DSWIG=true -DPYTHON_VERSION="$PYTHON_VERSION" -DBoost_INCLUDE_DIR="boost_1_74_0/boost" ..
 cmake --build . --config Release
 
 cd ../..
