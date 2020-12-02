@@ -7,14 +7,17 @@ function abspath {
 
 echo "$ python --version"
 python --version
+export PYTHON_VERSION=$(python --version | sed -rn 's/Python ([[:digit:]]\.[[:digit:]]).*/\1/p')
+
+echo "$ echo PYTHON_VERSION"
+echo $PYTHON_VERSION
 
 echo "$ which python"
 which python
 
-
 export PYTHON_ROOT=$(dirname $(dirname $(which python)))
-
-python --version
+echo "$ echo PYTHON_ROOT"
+echo $PYTHON_ROOT
 
 yum install -y pcre-devel python-devel tree
 yum update -y gcc
