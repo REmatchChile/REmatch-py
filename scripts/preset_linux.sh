@@ -5,7 +5,7 @@ function abspath {
     python -c "import os.path; print(os.path.abspath('$1'))"
 }
 
-yum install -y pcre-devel python-devel tree
+yum install -y pcre-devel
 yum update -y gcc
 
 gcc --version
