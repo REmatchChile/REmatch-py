@@ -1,5 +1,10 @@
 #!/bin/bash
 
+function abspath {
+    # Can work with any Python; need not be our installed Python.
+    python -c "import os.path; print(os.path.abspath('$1'))"
+}
+
 echo "$ python --version"
 python --version
 export PYTHON_VERSION=$(python --version | sed -En 's/Python ([[:digit:]]\.[[:digit:]]).*/\1/p')
