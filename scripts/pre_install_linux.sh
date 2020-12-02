@@ -7,7 +7,7 @@ function abspath {
 
 echo "$ python --version"
 python --version
-export PYTHON_VERSION=$(python --version | sed -rn 's/Python ([[:digit:]]\.[[:digit:]]).*/\1/p')
+export PYTHON_VERSION=$(python --version | sed -En 's/Python ([[:digit:]]\.[[:digit:]]).*/\1/p')
 
 echo "$ echo PYTHON_VERSION"
 echo $PYTHON_VERSION
@@ -24,7 +24,7 @@ yum update -y gcc
 
 gcc --version
 
-local PYTHON_INCLUDE_DIR=$(abspath $(find $PYTHON_ROOT/include -type d -name "python*"))
+export PYTHON_INCLUDE_DIR=$(abspath $(find $PYTHON_ROOT/include -type d -name "python*"))
 
 # Install Swig 4.0.2
 curl -O -L http://downloads.sourceforge.net/swig/swig-4.0.2.tar.gz

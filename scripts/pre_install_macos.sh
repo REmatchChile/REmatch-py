@@ -2,7 +2,7 @@
 
 echo "$ python --version"
 python --version
-export PYTHON_VERSION=$(python --version | sed -rn 's/Python ([[:digit:]]\.[[:digit:]]).*/\1/p')
+export PYTHON_VERSION=$(python --version | sed -En 's/Python ([[:digit:]]\.[[:digit:]]).*/\1/p')
 
 echo "$ echo PYTHON_VERSION"
 echo $PYTHON_VERSION
