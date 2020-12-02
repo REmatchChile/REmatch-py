@@ -22,4 +22,3 @@ tar xzf swig-4.0.2.tar.gz
 # Install boost (will only work if REmatch only uses boost's headers)
 curl -O -L https://dl.bintray.com/boostorg/release/1.74.0/source/boost_1_74_0.tar.gz
 tar xzf boost_1_74_0.tar.gz
-export BOOST_ROOT=$(abspath boost_1_74_0)

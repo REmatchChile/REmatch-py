@@ -9,6 +9,10 @@ function abspath {
 pip install cmake
 cmake --version
 
+export BOOST_ROOT=$(abspath boost_1_74_0)
+echo "$ echo BOOST_ROOT"
+echo $BOOST_ROOT
+
 echo "$ python --version"
 python --version
 export PYTHON_VERSION=$(python --version | sed -En 's/Python ([[:digit:]]\.[[:digit:]]).*/\1/p')
