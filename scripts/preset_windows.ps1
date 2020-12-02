@@ -1,6 +1,6 @@
 #!/usr/bin/env pwsh
 
-choco install swig cmake
+# choco install swig cmake
 
 $url = "https://dl.bintray.com/boostorg/release/1.74.0/source/boost_1_74_0.7z"
 $output = "boost_1_74_0.7z"
