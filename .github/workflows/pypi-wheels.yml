@@ -8,7 +8,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-18.04, macos-latest]
+        os: [ubuntu-18.04, macos-latest, windows-latest]
 
     steps:
       - uses: actions/checkout@v2
@@ -27,9 +27,11 @@ jobs:
       - name: Build wheels
         env:
           CIBW_BEFORE_ALL_MACOS: bash scripts/preset_macos.sh
-          CIBW_BEFORE_BUILD_MACOS: bash scripts/pre_install_macos.sh
+          CIBW_BEFORE_BUILD_MACOS: bash scripts/prebuild_macos.sh
           CIBW_BEFORE_ALL_LINUX: bash scripts/preset_linux.sh
-          CIBW_BEFORE_BUILD_LINUX: bash scripts/pre_install_linux.sh
+          CIBW_BEFORE_BUILD_LINUX: bash scripts/prebuild_linux.sh
+          CIBW_BEFORE_ALL_WINDOWS: scripts/preset_windows.ps1
+          CIBW_BEFORE_BUILD_WIDOWS: scripts/prebuild_windows.ps1
           CIBW_BUILD: >
             cp36-macosx_x86_64 cp37-macosx_x86_64 cp38-macosx_x86_64
              cp39-macosx_x86_64
@@ -37,6 +39,9 @@ jobs:
              cp39-manylinux_x86_64
              cp36-manylinux_i686 cp37-manylinux_i686 cp38-manylinux_i686
              cp39-manylinux_i686
+             cp36-win_amd64 cp37-win_amd64 cp38-win_amd64 cp39-win_amd64
+             cp36-win32 cp37-win32 cp38-win32 cp39-win32
+          CIBW_TEST_COMMAND: python -m pyrematch.test_basic_operation
 
         run: |
           python -m cibuildwheel --output-dir wheelhouse REmatch
