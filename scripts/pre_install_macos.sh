@@ -1,5 +1,11 @@
 #!/bin/bash
 
+echo "$ python --version"
+python --version
+
+echo "$ which python"
+which python
+
 brew install swig boost
 
 mkdir -pv REmatch/build && cd REmatch/build

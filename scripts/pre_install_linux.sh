@@ -5,6 +5,13 @@ function abspath {
     python -c "import os.path; print(os.path.abspath('$1'))"
 }
 
+echo "$ python --version"
+python --version
+
+echo "$ which python"
+which python
+
+
 export PYTHON_ROOT=$(dirname $(dirname $(which python)))
 
 python --version
