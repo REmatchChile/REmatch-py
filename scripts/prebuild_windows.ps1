@@ -7,6 +7,7 @@ $PYTHON_VERSION = python --version | Select-String '^Python (\d\.\d).*' |
 $BOOST_ROOT = $BOOST_ROOT_1_72_0
 
 Write-Host "BOOST_ROOT = $BOOST_ROOT"
+Write-Host "BOOST_ROOT_1_72_0 = $BOOST_ROOT_1_72_0"
 Write-Host "PYTHON_VERSION = $PYTHON_VERSION"
 
 New-Item -Path "REmatch/build" -ItemType Directory
