@@ -33,7 +33,7 @@ jobs:
           CIBW_BEFORE_ALL_WINDOWS: powershell scripts/preset_windows.ps1
           CIBW_BEFORE_BUILD_WINDOWS: powershell scripts/prebuild_windows.ps1
           CIBW_MANYLINUX_X86_64_IMAGE: manylinux2014
-          CIBW_MANYLINUX_I686_IMAGE: manylinux2014
+          CIBW_MANYLINUX_I686_IMAGE: manylinux2014 
           CIBW_BUILD: >
             cp36-macosx_x86_64 cp37-macosx_x86_64 cp38-macosx_x86_64
              cp39-macosx_x86_64
