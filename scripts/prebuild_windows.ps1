@@ -9,14 +9,13 @@ $PYTHON_VERSION = python --version | Select-String '^Python (\d\.\d).*' |
 $BOOST_ROOT = (Resolve-Path -Path "boost_1_74_0")
 
 Write-Host "BOOST_ROOT = $BOOST_ROOT"
-Write-Host "BOOST_ROOT_1_72_0 = $BOOST_ROOT_1_72_0"
 Write-Host "PYTHON_VERSION = $PYTHON_VERSION"
 
 New-Item -Path "REmatch/build" -ItemType Directory
 
 cd REmatch/build
 
-cmake -DSWIG=true -DPYTHON_VERSION="$PYTHON_VERSION" -DBOOST_ROOT="$BOOST_ROOT"..
+cmake -DSWIG=true -DPYTHON_VERSION="$PYTHON_VERSION" -DBOOST_ROOT="$BOOST_ROOT" ..
 cmake --build . --config Release
 
 cd ..
