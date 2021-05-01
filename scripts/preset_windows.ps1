@@ -8,3 +8,5 @@ $output = "boost_1_74_0.7z"
 (New-Object System.Net.WebClient).DownloadFile($url, $output)
 
 7z x boost_1_74_0.7z
+
+Write-Host "Downloaded boost 1.74.0"
