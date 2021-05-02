@@ -36,9 +36,9 @@ Write-Host "ls python/packages/pyrematch"
 Get-ChildItem python/packages/pyrematch
 
 # No idea why the .pyd file ends up inside a Release folder in windows
-# (mac and linux don't seem to have this problem). So manually copy the
+# (mac and linux don't seem to do this). So manually copy the
 # file to its correct location
-Copy-Item "python\packages\pyrematch\Release\_rematch.pyd" -Destination "python\packages\pyrematch"
+Copy-Item "python\packages\pyrematch\Release\_rematchpy.pyd" -Destination "python\packages\pyrematch"
 
 # Need to remove build dir so cibuildwheel doesn't crash in the next iteration
 Remove-Item "build" -Recurse
