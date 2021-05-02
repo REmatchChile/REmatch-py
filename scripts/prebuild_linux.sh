@@ -35,13 +35,7 @@ export PYTHON_INCLUDE_DIR=$(abspath $(find $PYTHON_ROOT/include -type d -name "p
 echo "$ echo PYTHON_INCLUDE_DIR"
 echo $PYTHON_INCLUDE_DIR
 
-echo "ls"
-ls
-
-echo "ls .."
-ls ..
-
-cmake -B build -DSWIG=true -DPython3_INCLUDE_DIRS=$PYTHON_INCLUDE_DIR ..
+cmake -B build -DSWIG=true -DPython3_INCLUDE_DIRS=$PYTHON_INCLUDE_DIR
 
 cmake --build build --config Release
 
