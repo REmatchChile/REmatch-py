@@ -5,7 +5,9 @@ Python porting of REmatch
 ---
 ## Como funciona el CI/CD
 
-Actualmente los build de las distintas versiones de python están siendo compiladas en `Github Actions` para Mac y Linux y `Appveyor` para Windows.
+Actualmente los build de las distintas versiones de python están siendo compilados en `Github Actions` tanto para Windows (32-bit y 64-bit), MacOS y Linux. 
+
+El proceso es mediado fundamentalmente por el proyecto [cibuildwheel](https://github.com/joerick/cibuildwheel) ([Documentación](https://cibuildwheel.readthedocs.io/en/stable/)).
 
 Para compilar en cada sistema operativo, existen 2 archivos de comandos que se ejecutarán en las maquinas virtuales: `preset_<so>` y `prebuild_<so>`.
 
@@ -20,4 +22,7 @@ El workflow que lee `Github Actions` están declaradas en `.github/workflows/pyp
  - Correr los archivos `preset` y `prebuild`.
  - Definir las versiones de python donde se compilará la librería dependiendo del sistema operativo y arquitectura de este en el caso de windows. (ej.: `cp39-macosx_x86_64` indica python  3.9 en MacOS. Mas info [aquí](https://cibuildwheel.readthedocs.io/en/latest/options/))
  - Testea que la compilación haya sido exitosa a través de un test que prueba todas las funciones de la librería.
- - Sube la nueva versión a Pypi en caso de incluir un `tag release`
+ - **Sube la nueva versión a PYPI en caso de incluir un `tag` que comience por `v` (e.g. `v0.1.2`).**
+
+## TODOs
+- Dejar todo lo relacionado a Python del proyecto en este repo (estos son archivos como `setup.py` y directorios como `python/packages`)
