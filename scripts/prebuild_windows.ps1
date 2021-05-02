@@ -26,14 +26,10 @@ Write-Host "PYTHON_VERSION = $PYTHON_VERSION"
 Write-Host "PYTHON_ARCH = $PYTHON_ARCH"
 
 # Run CMake and build
-New-Item -Path "REmatch/build" -ItemType Directory
-cd REmatch/build
 
-cmake -A "$PYTHON_ARCH" -DSWIG=true -DPYTHON_VERSION="$PYTHON_VERSION" -DBOOST_ROOT="$BOOST_ROOT" ..
+cmake -B build -A "$PYTHON_ARCH" -DSWIG=true -DPYTHON_VERSION="$PYTHON_VERSION" -DBOOST_ROOT="$BOOST_ROOT"
 
-cmake --build . --config Release
-
-cd ..
+cmake --build build --config Release
 
 # Check the contents of the package before building
 Write-Host "ls REmatch/python/packages/pyrematch"
@@ -48,4 +44,4 @@ Copy-Item "python\packages\pyrematch\Release\_rematch.pyd" -Destination "python\
 Remove-Item "build" -Recurse
 
 # Finally build
-python setup.py bdist_wheel
+# python setup.py bdist_wheel

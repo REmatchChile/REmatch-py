@@ -14,13 +14,9 @@ export PYTHON_ROOT=$(dirname $(dirname $(which python)))
 echo "$ echo PYTHON_ROOT"
 echo $PYTHON_ROOT
 
-mkdir -pv REmatch/build && cd REmatch/build
+cmake -B build -DSWIG=true -DPYTHON_VERSION=$PYTHON_VERSION
 
-cmake -DSWIG=true -DPYTHON_VERSION=$PYTHON_VERSION  ..
-
-cmake --build . --config Release
-
-cd ../..
+cmake --build build --config Release
 
 echo "$ ls REmatch/python/packages/pyrematch"
 ls REmatch/python/packages/pyrematch

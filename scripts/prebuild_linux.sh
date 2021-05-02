@@ -35,13 +35,9 @@ export PYTHON_INCLUDE_DIR=$(abspath $(find $PYTHON_ROOT/include -type d -name "p
 echo "$ echo PYTHON_INCLUDE_DIR"
 echo $PYTHON_INCLUDE_DIR
 
-mkdir -pv REmatch/build && cd REmatch/build
+cmake -B build -DSWIG=true -DPython3_INCLUDE_DIRS=$PYTHON_INCLUDE_DIR ..
 
-cmake -DSWIG=true -DPython3_INCLUDE_DIRS=$PYTHON_INCLUDE_DIR ..
-
-cmake --build . --config Release
-
-cd ../..
+cmake --build build --config Release
 
 echo "$ ls REmatch/python/packages/pyrematch"
 ls REmatch/python/packages/pyrematch
