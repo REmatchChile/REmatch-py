@@ -26,3 +26,4 @@ El workflow que lee `Github Actions` están declaradas en `.github/workflows/pyp
 
 ## TODOs
 - Dejar todo lo relacionado a Python del proyecto en este repo (estos son archivos como `setup.py` y directorios como `python/packages`)
+- Solucionar el repair de la versión de windows. Probablemente usar [`delvewheel`](https://github.com/adang1345/delvewheel).

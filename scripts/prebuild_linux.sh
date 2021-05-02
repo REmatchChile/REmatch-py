@@ -5,7 +5,7 @@ function abspath {
     python -c "import os.path; print(os.path.abspath('$1'))"
 }
 
-# Install CMake
+# Install CMake. Do it with pip as yum repos might be too outdated.
 pip install cmake
 cmake --version
 
@@ -22,6 +22,10 @@ echo $PYTHON_VERSION
 
 echo "$ which python"
 which python
+
+# As of this writing. CMake's FindPython is unable to find the correct Python
+# include dirs. It doesn't even take hints. So, we must define the variable
+# Python3_INCLUDE_DIRS by hand.
 
 export PYTHON_ROOT=$(dirname $(dirname $(which python)))
 echo "$ echo PYTHON_ROOT"

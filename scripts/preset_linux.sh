@@ -8,6 +8,8 @@ function abspath {
 yum install -y pcre-devel
 yum update -y gcc
 
+# Keep in mind the gcc version. Maybe is too old for c++ newest features
+# (c++17 maybe)
 gcc --version
 
 # Install Swig 4.0.2
