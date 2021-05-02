@@ -16,7 +16,7 @@ if ([Environment]::Is64BitOperatingSystem) {
 
 Write-Host "BOOST_ROOT = $BOOST_ROOT"
 Write-Host "PYTHON_VERSION = $PYTHON_VERSION"
-Write-Host "PYTHON_ARCH = $PYTHON_VERSION"
+Write-Host "PYTHON_ARCH = $PYTHON_ARCH"
 
 New-Item -Path "REmatch/build" -ItemType Directory
 
