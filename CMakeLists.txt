@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(rematchpy)
+project(rematchpy LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(REmatch_ROOT ${PROJECT_SOURCE_DIR}/REmatch)
 
@@ -23,9 +26,6 @@ if(NOT APPLE)
   string(CONCAT CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} "
                                 "-static-libgcc")
 endif()
-
-string(CONCAT CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} "
-                              "-static-libstdc++")
 
 # Include Python 3 include dirs
 include_directories(SYSTEM ${Python3_INCLUDE_DIRS})
