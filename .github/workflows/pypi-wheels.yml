@@ -43,6 +43,7 @@ jobs:
             cp36-manylinux_i686 cp37-manylinux_i686 cp38-manylinux_i686
             cp39-manylinux_i686
             cp36-win_amd64 cp37-win_amd64 cp38-win_amd64 cp39-win_amd64
+            cp36-win32 cp37-win32 cp38-win32 cp39-win32
           CIBW_TEST_COMMAND: python -m pyrematch.test_basic_operation
 
         run: |
