@@ -1,5 +1,5 @@
 # REmatch-py
-![PyPI](https://img.shields.io/pypi/v/pyrematch?color=blue) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/REmatchChile/REmatch-py/pypi-wheels?logo=github)
+![PyPI](https://img.shields.io/pypi/v/pyrematch?color=blue) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/REmatchChile/REmatch-py/pypi-wheels?logo=github) ![GitHub](https://img.shields.io/github/license/REmatchChile/REmatch-py)
 
 REmatch's Python 3 porting.
 
