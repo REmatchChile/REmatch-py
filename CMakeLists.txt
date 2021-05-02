@@ -33,6 +33,9 @@ include_directories(SYSTEM ${Python3_INCLUDE_DIRS})
 include_directories(SYSTEM ${REmatch_ROOT}/thirdparty)
 include_directories(${REmatch_ROOT}/src)
 
+find_package(Boost 1.58 REQUIRED)
+include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
+
 set(SWIG ON)
 
 add_subdirectory(REmatch)
