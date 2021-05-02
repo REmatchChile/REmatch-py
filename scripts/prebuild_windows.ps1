@@ -39,4 +39,6 @@ Get-ChildItem REmatch/python/packages/pyrematch
 
 Copy-Item "python\packages\pyrematch\Release\_rematch.pyd" -Destination "python\packages\pyrematch"
 
+Remove-Item "build" -Recurse
+
 python setup.py bdist_wheel
