@@ -14,7 +14,7 @@ Building the wheel of the porting has dependencies on:
 - `swig >= 4.0`
 - `boost >= 1.58` (only headers)
 
-If satisfied then the following command builds the wheel:
+If satisfied then the following commands build the wheel:
 ```
 cmake -B build
 cmake --build build --config Release
