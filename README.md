@@ -1,4 +1,6 @@
 # REmatch-py
+![PyPI](https://img.shields.io/pypi/v/pyrematch?color=blue) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/REmatchChile/REmatch-py/pypi-wheels?logo=github)
+
 REmatch's Python 3 porting.
 
 ## Local wheel creation
@@ -28,7 +30,7 @@ deactivate
 
 ## Como funciona el CI/CD
 
-Actualmente los build de las distintas versiones de python están siendo compilados con `Github Actions` en cada nuevo `push` tanto para Windows (32-bit y 64-bit), MacOS y Linux.
+Actualmente los build de las distintas versiones de python están siendo compilados con (GitHub Actions)[https://docs.github.com/en/actions] en cada nuevo `push` tanto para Windows (32-bit y 64-bit), MacOS y Linux.
 
 El proceso es mediado fundamentalmente por el proyecto [cibuildwheel](https://github.com/joerick/cibuildwheel) ([Documentación](https://cibuildwheel.readthedocs.io/en/stable/)).
 
@@ -40,7 +42,7 @@ Para compilar en cada sistema operativo, existen 2 archivos de comandos que se e
 - `Prebuild`
     - Este archivo se ejecuta antes de cada compilación de una versión de python y se declaran los `paths` de `Boost`, `Python` y/o cualquier programa necesario. Crea las carpetas donde se compilará la librería y ejecuta su compilación.
 
-El workflow que lee `Github Actions` están declaradas en `.github/workflows/pypi-wheels.yml`, ahí se le indica:
+El workflow que lee Github Actions está declarado en `.github/workflows/pypi-wheels.yml`, ahí se le indica:
  - Sistemas operativos donde compilar.
  - Correr los archivos `preset` y `prebuild`.
  - Definir las versiones de python donde se compilará la librería dependiendo del sistema operativo y arquitectura de este en el caso de windows. (ej.: `cp39-macosx_x86_64` indica python  3.9 en MacOS. Mas info [aquí](https://cibuildwheel.readthedocs.io/en/latest/options/))
@@ -51,5 +53,5 @@ El workflow que lee `Github Actions` están declaradas en `.github/workflows/pyp
 - Solucionar el repair de la versión de windows. Probablemente usar [`delvewheel`](https://github.com/adang1345/delvewheel).
 
 ## Maintainers
-- Oscar Cárcamo [@oscars810](https://github.com/oscars810)
 - Nicolás Van Sint Jan [@nicovsj](https://github.com/nicovsj)
+- Oscar Cárcamo [@oscars810](https://github.com/oscars810)
