@@ -8,11 +8,18 @@ $PYTHON_VERSION = python --version | Select-String '^Python (\d\.\d).*' |
 
 $BOOST_ROOT = (Resolve-Path -Path "boost_1_74_0")
 
-if ([Environment]::Is64BitOperatingSystem) {
+# Check if 32 bits or 64 bits
+python -c "import sys; assert sys.maxsize > 2**32"
+
+# If last command ran succesful then python is 64bts, else 32bits
+if ($LASTEXITCODE -eq 0) {
   $PYTHON_ARCH = "x64"
 } else {
   $PYTHON_ARCH = "Win32"
 }
+
+# Used for repair the wheel in windows
+pip install delvewheel
 
 Write-Host "BOOST_ROOT = $BOOST_ROOT"
 Write-Host "PYTHON_VERSION = $PYTHON_VERSION"

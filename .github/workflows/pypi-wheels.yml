@@ -45,6 +45,7 @@ jobs:
             cp36-win_amd64 cp37-win_amd64 cp38-win_amd64 cp39-win_amd64
             cp36-win32 cp37-win32 cp38-win32 cp39-win32
           CIBW_TEST_COMMAND: python -m pyrematch.test_basic_operation
+          CIBW_REPAIR_WHEEL_COMMAND_WINDOWS: "delvewheel repair -w {dest_dir} {wheel}"
 
         run: |
           python -m cibuildwheel --output-dir wheelhouse REmatch
