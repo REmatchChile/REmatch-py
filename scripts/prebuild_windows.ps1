@@ -29,11 +29,7 @@ Write-Host "PYTHON_ARCH = $PYTHON_ARCH"
 New-Item -Path "REmatch/build" -ItemType Directory
 cd REmatch/build
 
-cmake -A "$PYTHON_ARCH" `                      # Architecture for MSVC
-      -DSWIG=true `                            # Use swig
-      -DPYTHON_VERSION="$PYTHON_VERSION" `     # Python version to look for
-      -DBOOST_ROOT="$BOOST_ROOT" `             # Hint where Boost is
-      ..
+cmake -A "$PYTHON_ARCH" -DSWIG=true -DPYTHON_VERSION="$PYTHON_VERSION" -DBOOST_ROOT="$BOOST_ROOT" ..
 
 cmake --build . --config Release
 
