@@ -9,7 +9,12 @@ When first cloning the repo, `cd` into it and initialize the [REmatch](https://g
 ```
 git submodule update --init --recursive
 ```
-To build the wheel:
+Building the wheel of the porting has dependencies on:
+- `cmake >= 3.14` 
+- `swig >= 4.0`
+- `boost >= 1.58` (only headers)
+
+If satisfied then the following command builds the wheel:
 ```
 cmake -B build
 cmake --build build --config Release
@@ -17,7 +22,7 @@ python setup.py bdist_wheel
 ```
 The wheel will be at `dist/pyrematch-*.whl`. You can then use a virtual
 environment with python's [`venv`](https://docs.python.org/3/library/venv.html)
-to install the wheel using `pip`.
+to install the wheel with `pip`.
 ```
 python -m venv env-test
 source env-test/bin/activate
@@ -30,7 +35,7 @@ deactivate
 
 ## Como funciona el CI/CD
 
-Actualmente los build de las distintas versiones de python están siendo compilados con (GitHub Actions)[https://docs.github.com/en/actions] en cada nuevo `push` tanto para Windows (32-bit y 64-bit), MacOS y Linux.
+Actualmente los build de las distintas versiones de python están siendo compilados con [GitHub Actions](https://docs.github.com/en/actions) en cada nuevo `push` tanto para Windows (32-bit y 64-bit), MacOS y Linux.
 
 El proceso es mediado fundamentalmente por el proyecto [cibuildwheel](https://github.com/joerick/cibuildwheel) ([Documentación](https://cibuildwheel.readthedocs.io/en/stable/)).
 
