@@ -39,5 +39,5 @@ cmake -B build -DSWIG=true -DPython3_INCLUDE_DIRS=$PYTHON_INCLUDE_DIR ..
 
 cmake --build build --config Release
 
-echo "$ ls REmatch/python/packages/pyrematch"
-ls REmatch/python/packages/pyrematch
+echo "$ ls python/packages/pyrematch"
+ls python/packages/pyrematch

@@ -32,8 +32,8 @@ cmake -B build -A "$PYTHON_ARCH" -DSWIG=true -DPYTHON_VERSION="$PYTHON_VERSION" 
 cmake --build build --config Release
 
 # Check the contents of the package before building
-Write-Host "ls REmatch/python/packages/pyrematch"
-Get-ChildItem REmatch/python/packages/pyrematch
+Write-Host "ls python/packages/pyrematch"
+Get-ChildItem python/packages/pyrematch
 
 # No idea why the .pyd file ends up inside a Release folder in windows
 # (mac and linux don't seem to have this problem). So manually copy the

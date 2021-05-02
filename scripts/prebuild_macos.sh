@@ -18,5 +18,5 @@ cmake -B build -DSWIG=true -DPYTHON_VERSION=$PYTHON_VERSION
 
 cmake --build build --config Release
 
-echo "$ ls REmatch/python/packages/pyrematch"
-ls REmatch/python/packages/pyrematch
+echo "$ ls python/packages/pyrematch"
+ls python/packages/pyrematch
